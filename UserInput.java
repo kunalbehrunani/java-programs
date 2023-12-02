@@ -46,6 +46,9 @@ public class UserInput {
         System.out.println("c: " + c);
         System.out.println("z: " + z);
 
+        // Note - BufferedReader is faster than Scanner and hence should be preferred in Competitive Programming
+        // Note - String tokenizer is faster than .split() methods on input. Plus, it allows to accept values of different data types in the readLine()
+
         return;
     }
 }

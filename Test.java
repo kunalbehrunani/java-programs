@@ -1,58 +1,70 @@
 import java.io.*;
+import java.util.*;
 
 public class Test {
     public static void main (String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try (Scanner scn = new Scanner (System.in)) {
+            int n = scn.nextInt();
 
-        System.out.println("Enter Cordinates...");
+            int[] input = new int[n];
+            System.out.println(" input[2]: " + input[2]);
 
-        String rec1 = reader.readLine();
-        String rec2 = reader.readLine();
-
-        String[] rec1Parts = rec1.split(" ");
-        String[] rec2Parts = rec2.split(" ");
-
-        int rec1x1 = Integer.parseInt(rec1Parts[0]);
-        int rec1y1 = Integer.parseInt(rec1Parts[1]);
-        int rec1x2 = Integer.parseInt(rec1Parts[2]);
-        int rec1y2 = Integer.parseInt(rec1Parts[3]);
-
-        int rec2x1 = Integer.parseInt(rec2Parts[0]);
-        int rec2y1 = Integer.parseInt(rec2Parts[1]);
-        int rec2x2 = Integer.parseInt(rec2Parts[2]);
-        int rec2y2 = Integer.parseInt(rec2Parts[3]);
-
-        int minX = Integer.MAX_VALUE;
-        int maxX = Integer.MIN_VALUE;
-        int minY = Integer.MAX_VALUE;
-        int maxY = Integer.MIN_VALUE;
-
-        int[] x = { rec1x1, rec1x2, rec2x1, rec2x2 };
-        int[] y = { rec1y1, rec1y2, rec2y1, rec2y2 };
-
-        for (int i = 0; i < 4; i += 1) {
-            if (minX < x[i]) {
-                minX = x[i];
+            for (int i = 0; i < n; i += 1) {
+              input[i] = scn.nextInt();
             }
-            if (maxX > x[i]) {
-                maxX = x[i];
+
+            printArr(input);
+
+            int[] tempArr = new int[n];
+            int i = 0;
+            while (i < n && input[i] < 0) {
+              i += 1;
             }
-            if (minY < y[i]) {
-                minY = y[i];
+            int j = i-1;
+            int k = 0;
+            while (j >= 0 && i < n && k < n) {
+              int numJ = 0 - input[j];
+              int numI = input[i];
+              if (numI < numJ) {
+                tempArr[k] = numI;
+                i += 1;
+              } else {
+                tempArr[k] = numJ;
+                j -= 1;
+              }
+              k += 1;
             }
-            if (maxY > y[i]) {
-                maxY = y[i];
+            while (j >= 0) {
+                tempArr[k] = 0 - input[j];
+                j -= 1;
+                k += 1;
+            }
+            while (i < n) {
+                tempArr[k] = input[i];
+                i += 1;
+                k += 1;
+            }
+            printArr(tempArr);
+            for (i = 0; i < n; i += 1) {
+              System.out.print((tempArr[i] * tempArr[i]) + " ");
             }
         }
-        int ans = Math.max(maxX - minX, maxY - minY);
-        System.out.println(ans);
-
-
-
-        
-        
-
+    
+        return;
     }
 
+
+    private static void printArr(int[] arr) {
+        for (int i = 0; i < arr.length; i += 1) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println("");
+    }
+    private static void printArr(char[] arr) {
+        for (int i = 0; i < arr.length; i += 1) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println("");
+    }
     
 }

@@ -6,22 +6,14 @@ import javax.swing.plaf.multi.MultiInternalFrameUI;
 public class Test {
     public static void main (String[] args) throws IOException {
         BufferedReader bfn = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer input = new StringTokenizer(bfn.readLine());
+        // StringTokenizer input = new StringTokenizer(bfn.readLine());
 
-        // Write your code here
+        
 
         return;
     }
 
-    private static void reverseString(StringBuilder str) {
-        int i = 0;
-        int j = str.length() - 1;
-        while (i < j) {
-            char temp = str.charAt(i);
-            str.setCharAt(i, );
-
-        }
-    }
+    
 
     // Print to console functions
     private static void printArr(int[] arr) {

@@ -14,7 +14,8 @@ public class BinarySearch {
         for (int i = start; i <= end; i += 1) {
             System.out.println("################################ Element: " + i);
             // binarySearch(arr, i);
-            firstOccurence(arr, i);
+            // firstOccurence(arr, i);
+            lastOccurence(arr, i);
         }
 
         return;
@@ -122,6 +123,7 @@ public class BinarySearch {
             // and left most element is itself the answer.
             System.out.println("** Element Found: " + arr[l]);
             System.out.println("** First Occurence: " + l + "(index)");
+            return;
 
         }
         if (arr[r] < k) {
@@ -149,7 +151,67 @@ public class BinarySearch {
 
     }
 
+    /*
+     * This method finds if the given element k occurs in the given non-decreasing array - "arr"
+     * If Yes, it'll return the Last occurence of k
+     * If Not, then it'll return the Lower & Upper Bound of k. 
+     * Lower Bound: Greatest Number in the array which is less than k
+     * Upper Bound: Smallest Number in the array which is greater than k
+     */
     private static void lastOccurence(int[] arr, int k) {
+        boolean isArrayNonDecreasing = checkIfArrayIsNonDecreasing(arr);
+        if (!isArrayNonDecreasing) {
+            return;
+        }
+
+        /* RULE OF INVARIANT
+         * suppose arr[x] = k (where x is the last occurence of k)
+         * Block B1 = 0 to x
+         * Block B2 = x+1 to n-1
+         * Hence, initial search space - l to r, where l = 0 & r = n-1
+         * l will always stay in B1
+         * r will always stay in B2
+         * Finally when l and r are adjacent, our answer will be l as it lies in Block B1.
+         */
+
+        int n = arr.length;
+        int l = 0, r = n-1;
+
+        if (arr[l] > k) {
+            System.out.println("** Element Not Found");
+            System.out.println("** Upper Bound: " + arr[l]);
+            return;
+        }
+        if (arr[r] == k) {
+            // We're checking this condition because as per our rule of invariant, we've defined our Block B2 with elements greater than element k. 
+            // If our right most element in array is equal to k itself, then it defies our declaration of blocks as per rule of invariant
+            // and right most element is itself the answer.
+            System.out.println("** Element Found: " + k);
+            System.out.println("** Last Occurence: " + r + "(index)");
+            return;
+
+        }
+        if (arr[r] < k) {
+            System.out.println("** Element Not Found");
+            System.out.println("** Lower Bound: " + arr[r]);
+            return;
+        }
+        while (l + 1 < r) {
+            int m = l + (r-l)/2;
+            if (arr[m] > k) {
+                r = m;
+            } else l = m;
+        }
+
+        if (arr[l] != k) {
+            System.out.println("** Element Not Found");
+            System.out.println("** Lower Bound: " + arr[l]);
+            System.out.println("** Upper Bound: " + arr[r]);
+            return;
+        }
+
+        System.out.println("** Element Found: " + k);
+        System.out.println("** Last Occurence: " + l + "(index)");
 
     }
 }

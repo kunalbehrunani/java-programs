@@ -8,16 +8,17 @@ public class BinarySearch {
         // int[] arr = new int[] {1, 3, 5, 6, 6, 6, 7, 7, 10, 10, 14, 16, 19, 19};
         int[] arr = new int[] {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 3, 3, 3, 3};
 
-        int n = arr.length;
-        int start = arr[0] - 1;
-        int end = arr[n-1] + 1;
-        for (int i = start; i <= end; i += 1) {
-            System.out.println("################################ Element: " + i);
-            // binarySearch(arr, i);
-            // firstOccurence(arr, i);
-            lastOccurence(arr, i);
-        }
+        // int n = arr.length;
+        // int start = arr[0] - 1;
+        // int end = arr[n-1] + 1;
+        // for (int i = start; i <= end; i += 1) {
+        //     System.out.println("################################ Element: " + i);
+        //     // binarySearch(arr, i);
+        //     // firstOccurence(arr, i);
+        //     lastOccurence(arr, i);
+        // }
 
+        sqrtRoot(2584757);
         return;
     }
 
@@ -213,5 +214,41 @@ public class BinarySearch {
         System.out.println("** Element Found: " + k);
         System.out.println("** Last Occurence: " + l + "(index)");
 
+    }
+
+    private static void sqrtRoot(int num) {
+        /*
+         * Key to idenitify Binary Search pattern is monotonicity.
+         * Square of an element over x axis is monotonic in nature. 
+         * ie. if x increases => x2 also increases.
+         * Hence, we use Binary Search Pattern. 
+         * As per rule of invariant, we define 2 blocks B1 & B2
+         * x belongs to B1 where x2 < num
+         * x belongs to B2 where x^2 >= num
+         * Since, we're dealing in floating point numbers, the precision we provide at boundry will give us the desired precision in result. 
+         */
+
+         float l = 1;
+         float r = (float) num;
+         int iterations = 0;
+         while (l + 0.0001 < r) {
+             iterations += 1;
+            //  System.out.println("l: " + l + ", r: " + r);
+             float m = l + (r-l)/2;
+             if (m * m == num) {
+                 System.out.println("Sqrt of " + num + ": " + m);
+                 r = m;
+                 break;
+             }
+             if (m * m < num) {
+                 l = m;
+             } else {
+                 r = m;
+             }
+         }
+         System.out.println("**************************");
+         System.out.println("Total Number of Iterations: " + iterations);
+         System.out.println("Square Root of " + num + ": " + r);
+         System.out.println("**************************");
     }
 }

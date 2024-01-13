@@ -7,6 +7,8 @@ public class UserInput {
     public static void main (String[] args) throws IOException {
         BufferedReader reader = new BufferedReader( new InputStreamReader(System.in));
 
+        System.out.println(Integer.MIN_VALUE);
+
         // Read Input Sentence (a line) with 
         System.out.println("Enter Your Name");
         String name = reader.readLine();

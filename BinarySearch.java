@@ -33,6 +33,11 @@ public class BinarySearch {
     }
 
     private static void binarySearch(int[] arr, int k) {
+        /*
+         * This below is Naive Approach.
+         * Implemented Raw, without going through the notes from AlgoUniversity. 
+         * Do not refer.
+         */
         int n = arr.length;
 
         boolean isArrayNonDecreasing = checkIfArrayIsNonDecreasing(arr);
@@ -141,6 +146,10 @@ public class BinarySearch {
         System.out.println("** Element Found: " + arr[r]);
         System.out.println("** First Occurence: " + r + "(index)");
 
+
+    }
+
+    private static void lastOccurence(int[] arr, int k) {
 
     }
 }

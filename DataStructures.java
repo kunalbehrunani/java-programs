@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-import org.omg.CORBA.WCharSeqHolder;
-
 public class DataStructures {
     public static void main (String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

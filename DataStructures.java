@@ -21,10 +21,6 @@ public class DataStructures {
             default: System.out.println("Wrong Input"); return;
         }
         
-
-
-        
-
         switch (dataStructure) {
             case "treeMap": treeMap(); break;
             case "stackAndQueue": stackAndQueue(); break;

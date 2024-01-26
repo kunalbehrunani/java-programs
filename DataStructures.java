@@ -7,8 +7,24 @@ public class DataStructures {
     public static void main (String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        System.out.println("Enter the Code For Following Data Structures");
+        System.out.println("1 -- Tree Map");
+        System.out.println("1 -- Stack And Queue");
+
+
         StringTokenizer input = new StringTokenizer(br.readLine());
-        String dataStructure = input.nextToken();
+        int code = Integer.parseInt(input.nextToken());
+        String dataStructure;
+        switch(code) {
+            case 1: dataStructure = "treeMap"; break;
+            case 2: dataStructure = "stackAndQueue"; break;
+            default: System.out.println("Wrong Input"); return;
+        }
+        
+
+
+        
+
         switch (dataStructure) {
             case "treeMap": treeMap(); break;
             case "stackAndQueue": stackAndQueue(); break;

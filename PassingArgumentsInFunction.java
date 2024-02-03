@@ -6,9 +6,11 @@ public class PassingArgumentsInFunction {
         // updateInt(x);
         // System.out.println("x: " + x);
 
-        String str = new String("xyz");
-        updateString(str);
-        System.out.println("-- in method main, str: " + str);
+        // String str = new String("xyz");
+        // updateString(str);
+        // System.out.println("-- in method main, str: " + str);
+
+        StringBuilder strB = new StringBuilder("xyz");
 
     }
 
@@ -33,7 +35,7 @@ public class PassingArgumentsInFunction {
          * 
          * Hence, Ideally, if we alter the string in a function, the updated value
          * should reflect in the original string, in the main function, however, it is
-         * not (Ref: updateStringV1)
+         * not (Ref: updateString)
          * 
          * The reason for this is because objects of the "String" class are immutable
          * ie. Once instantiated, the value of the variable cannot be changed.
@@ -56,7 +58,7 @@ public class PassingArgumentsInFunction {
          * strings (which is nothing but an object of String class) in Java.
          */
         str += "abc";
-        System.out.println("-- in method updateStringV1, str: " + str);
+        System.out.println("-- in method updateString, str: " + str);
 
         str = new String("pqr");
         /*
@@ -65,7 +67,7 @@ public class PassingArgumentsInFunction {
          * function). When we return from this function, the original string would
          * remain unchanged.
          */
-        System.out.println("-- in method updateStringV1, str: " + str);
+        System.out.println("-- in method updateString, str: " + str);
 
         return;
     }

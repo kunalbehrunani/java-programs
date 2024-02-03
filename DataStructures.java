@@ -2,27 +2,38 @@ import java.io.*;
 import java.util.*;
 
 public class DataStructures {
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Enter the Code For Following Data Structures");
         System.out.println("1 -- Tree Map");
         System.out.println("1 -- Stack And Queue");
 
-
         StringTokenizer input = new StringTokenizer(br.readLine());
         int code = Integer.parseInt(input.nextToken());
         String dataStructure;
-        switch(code) {
-            case 1: dataStructure = "treeMap"; break;
-            case 2: dataStructure = "stackAndQueue"; break;
-            default: System.out.println("Wrong Input"); return;
+        switch (code) {
+            case 1:
+                dataStructure = "treeMap";
+                break;
+            case 2:
+                dataStructure = "stackAndQueue";
+                break;
+            default:
+                System.out.println("Wrong Input");
+                return;
         }
-        
+
         switch (dataStructure) {
-            case "treeMap": treeMap(); break;
-            case "stackAndQueue": stackAndQueue(); break;
-            default: System.out.println("This data structure is not yet supported"); break;
+            case "treeMap":
+                treeMap();
+                break;
+            case "stackAndQueue":
+                stackAndQueue();
+                break;
+            default:
+                System.out.println("This data structure is not yet supported");
+                break;
         }
         return;
     }
@@ -35,7 +46,7 @@ public class DataStructures {
         orderedHashMap.put(6, 11);
 
         System.out.println("Ordered Hash Map (Tree Map): ");
-        for (int key: orderedHashMap.keySet()) {
+        for (int key : orderedHashMap.keySet()) {
             System.out.println("key: " + key + " | value: " + orderedHashMap.get(key));
         }
         return;
@@ -60,35 +71,34 @@ public class DataStructures {
         isStackEmpty = s1.empty();
         System.out.println("isStackEmpty: " + isStackEmpty);
 
-
         System.out.println("******************************");
         System.out.println("******************************");
         System.out.println("******************************");
-
 
         /*
          * Queue is an Interface in Java
          * Hence, we cannot declare a Queue by writing simply "new Queue()"
          * Because Queue is an interface and not a class to be instantiated
-         * Therefore, we need to implement Queue (which indirectly means implement FIFO Nature)
-         * using a class that implements the Queue Interface. 
-         * Below are a few classes in Java that implement this - 
-         *      1.  Priority Queue
-         *          Queue<Integer> q1 = new PriorityQueue<Integer>();
-         *      2.  Linked List
-         *          Queue<Integer> q2 = new LinkedList<Integer>();
-         *      3.  Priority Blocking Queue
-         *          Queue<Integer> q3 = new PriorityBlockingQueue<Integer>();
+         * Therefore, we need to implement Queue (which indirectly means implement FIFO
+         * Nature)
+         * using a class that implements the Queue Interface.
+         * Below are a few classes in Java that implement this -
+         * 1. Priority Queue
+         * Queue<Integer> q1 = new PriorityQueue<Integer>();
+         * 2. Linked List
+         * Queue<Integer> q2 = new LinkedList<Integer>();
+         * 3. Priority Blocking Queue
+         * Queue<Integer> q3 = new PriorityBlockingQueue<Integer>();
          * 
          * Most oftenly Linked List is used for implementation of simple queue
          * And, Priority Queue Class is used for implementation of priority queue.
-         *      
+         * 
          */
 
-        // Queue<Integer> q1 = new Queue<Integer>();        // Throws Error
+        // Queue<Integer> q1 = new Queue<Integer>(); // Throws Error
 
         Queue<Integer> q2 = new LinkedList<Integer>();
-        
+
         q2.add(1);
         q2.add(2);
         // q2.add(3);
@@ -118,19 +128,12 @@ public class DataStructures {
 
         /*
          * Returns 0 if Queue is empty.
-         * Hence, this check can also be used instead of isEmpty() while using operations like poll or peek etc.
+         * Hence, this check can also be used instead of isEmpty() while using
+         * operations like poll or peek etc.
          */
         int totalNumberOfItemsInQueue = q2.size();
         System.out.println("totalNumberOfItemsInQueue: " + totalNumberOfItemsInQueue);
 
-        
-        
-        
-
-
-        
-
     }
-    
-    
+
 }

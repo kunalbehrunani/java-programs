@@ -4,12 +4,12 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class UserInput {
-    public static void main (String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader( new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println(Integer.MIN_VALUE);
 
-        // Read Input Sentence (a line) with 
+        // Read Input Sentence (a line) with
         System.out.println("Enter Your Name");
         String name = reader.readLine();
         System.out.println("Hello, " + name);
@@ -18,7 +18,8 @@ public class UserInput {
         System.out.println("Enter your Salary");
         int salary = Integer.parseInt(reader.readLine());
         System.out.println(salary);
-        System.out.println("Your earn very less, " + name + ". Rs. " + salary + "/- is not sufficient considering the inflation. Work hard buddy!!");
+        System.out.println("Your earn very less, " + name + ". Rs. " + salary
+                + "/- is not sufficient considering the inflation. Work hard buddy!!");
 
         // Read a line of integers
         System.out.println("Enter a new line to be read (Integers) - ");
@@ -48,8 +49,10 @@ public class UserInput {
         System.out.println("c: " + c);
         System.out.println("z: " + z);
 
-        // Note - BufferedReader is faster than Scanner and hence should be preferred in Competitive Programming
-        // Note - String tokenizer is faster than .split() methods on input. Plus, it allows to accept values of different data types in the readLine()
+        // Note - BufferedReader is faster than Scanner and hence should be preferred in
+        // Competitive Programming
+        // Note - String tokenizer is faster than .split() methods on input. Plus, it
+        // allows to accept values of different data types in the readLine()
 
         return;
     }

@@ -8,15 +8,15 @@ public class BinarySearch {
         // int[] arr = new int[] {1, 3, 5, 6, 6, 6, 7, 7, 10, 10, 14, 16, 19, 19};
         int[] arr = new int[] {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 3, 3, 3, 3};
 
-        // int n = arr.length;
-        // int start = arr[0] - 1;
-        // int end = arr[n-1] + 1;
-        // for (int i = start; i <= end; i += 1) {
-        //     System.out.println("################################ Element: " + i);
-        //     // binarySearch(arr, i);
-        //     // firstOccurence(arr, i);
-        //     lastOccurence(arr, i);
-        // }
+        int n = arr.length;
+        int start = arr[0] - 1;
+        int end = arr[n-1] + 1;
+        for (int i = start; i <= end; i += 1) {
+            System.out.println("################################ Element: " + i);
+            binarySearch(arr, i);
+            firstOccurence(arr, i);
+            lastOccurence(arr, i);
+        }
 
         sqrtRoot(2584757);
         return;

@@ -11,6 +11,8 @@ public class PassingArgumentsInFunction {
         // System.out.println("-- in method main, str: " + str);
 
         StringBuilder strB = new StringBuilder("xyz");
+        updateStringBuilder(strB);
+        System.out.println("-- in method main, strB: " + strB);
 
     }
 
@@ -72,4 +74,37 @@ public class PassingArgumentsInFunction {
         return;
     }
 
+    private static void updateStringBuilder(StringBuilder strB) {
+        /*
+         * Just like String class in Java represents a sequence of characters that are
+         * immutable in nature ie. once a string class is initialized with a set of
+         * characters, it cannot be changed. Every time a string value is changed, then
+         * internally that means a new string was created and assigned the copy of
+         * reference.
+         * 
+         * Similar to it, StringBuilder is a class in Java that, upon instantiation,
+         * represents a sequence of characters that are mutable in nature. Ie. when
+         * passed in a function, the reference points to the original value. And when
+         * the string(builder) is altered inside the function, the change reflects in
+         * the original value of the StringBuilder.
+         * 
+         * StringBuilder is more preferred way for dealing with strings when we require
+         * to do lot of operations on the string. The idea of StringBuilder can be
+         * intuitively understand as in we can use StringBuilder to do as many
+         * operations as we want and "build" our desired "string". Once our sequence of
+         * characters in our required string is ready, and we want to use it as string,
+         * we can leverage the ".toString()" method of this class. As the name of this
+         * class suggests, it allows us to build our string in whatever way we want
+         * without being concerned with the immutable nature of String data types in
+         * Java.
+         * 
+         * StringBuilder is similar to StringBuffer class in Java except StringBuilder
+         * is more optimized for single threaded operations (which is most of the case
+         * in our case), hence, it is preferred to use StringBuilder over StringBuffer
+         * as well as String Class in Java.
+         */
+        strB.append("_abc");
+        System.out.println("-- in method updateStringBuilder, strB: " + strB);
+        return;
+    }
 }

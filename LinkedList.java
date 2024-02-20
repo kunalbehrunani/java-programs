@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+/*
+ * Below implementation is based on static class.
+ * For implementation via non-static class, ref: LinkedListV2.java
+ */
 public class LinkedList {
 
   /*

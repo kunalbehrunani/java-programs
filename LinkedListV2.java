@@ -69,6 +69,9 @@ public class LinkedListV2 {
     return;
   }
 
+  /*
+   * Insert element at the beginning of the linked list
+   */
   public void insertAtBeginning(int value) {
     Node newHead = new Node(value);
     Node currHead = this.head();

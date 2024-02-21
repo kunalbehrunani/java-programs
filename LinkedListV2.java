@@ -1,5 +1,4 @@
 public class LinkedListV2 {
-
   public class Node {
     int data;
 

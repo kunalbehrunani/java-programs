@@ -33,15 +33,15 @@ public class LinkedListV2 {
    * Print the Linked List
    */
   public void print() {
-    Node itrNode = this.head();
-    if (itrNode == null) {
-      System.out.print("    Error: LinkedList is Empty\n");
+    Node currNode = this.head();
+    if (currNode == null) {
+      System.out.print("Error: LinkedList is Empty\n");
       return;
     }
     System.out.print("** Linked List: \n");
-    while (itrNode != null) {
-      System.out.print(itrNode.data + " -> ");
-      itrNode = itrNode.next;
+    while (currNode != null) {
+      System.out.print(currNode.data + " -> ");
+      currNode = currNode.next;
     }
     System.out.print("NULL\n\n");
     return;
@@ -56,14 +56,14 @@ public class LinkedListV2 {
      */
     Node newNode = new Node(value);
 
-    Node itrNode = this.head();
-    if (itrNode == null) {
+    Node currNode = this.head();
+    if (currNode == null) {
       this._head = newNode;
     } else {
-      while (itrNode.next != null) {
-        itrNode = itrNode.next;
+      while (currNode.next != null) {
+        currNode = currNode.next;
       }
-      itrNode.next = newNode;
+      currNode.next = newNode;
     }
     return;
   }
@@ -115,6 +115,59 @@ public class LinkedListV2 {
 
     prevNode.next = newNode;
     newNode.next = currNode;
+    return;
+  }
+
+  public void deleteAtEnd() {
+    Node currNode = this.head();
+    if (currNode == null) {
+      System.out.print("Error: Linked List is empty already");
+      return;
+    }
+    Node prevNode = null;
+    while (currNode.next != null) {
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+
+    if (prevNode == null) {
+      this._head = null;
+      return;
+    }
+
+    prevNode.next = null;
+    return;
+  }
+
+  // 1 -> 2 -> 3 -> 4
+  // 0 1 2 3
+
+  public void deleteAtIndex(int targetIndex) {
+
+    Node currNode = this.head();
+
+    if (currNode == null) {
+      System.out.println("Error: Linked List is empty already");
+      return;
+    }
+    if (targetIndex == 0) {
+      this._head = this.head().next;
+      return;
+    }
+
+    Node prevNode = null;
+    int currentIndex = 0;
+    while (currentIndex < targetIndex && currNode.next != null) {
+      prevNode = currNode;
+      currNode = currNode.next;
+      currentIndex += 1;
+    }
+
+    if (currentIndex != targetIndex) {
+      System.out.println("Error: No Element at specified index in linked list");
+      return;
+    }
+    prevNode.next = currNode.next;
     return;
   }
 }

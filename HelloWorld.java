@@ -7,9 +7,11 @@ public class HelloWorld {
     ll.insertAtEnd(24);
     ll.insertAtEnd(36);
     ll.print();
-    ll.insertAtBeginning(94);
+    ll.insertAtIndex(1, 94);
     ll.print();
-    ll.insertAtBeginning(112);
+    ll.insertAtIndex(10, 112);
+    ll.print();
+    ll.insertAtIndex(0, 199);
     ll.print();
   }
 }

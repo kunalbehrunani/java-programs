@@ -139,9 +139,6 @@ public class LinkedListV2 {
     return;
   }
 
-  // 1 -> 2 -> 3 -> 4
-  // 0 1 2 3
-
   public void deleteAtIndex(int targetIndex) {
 
     Node currNode = this.head();

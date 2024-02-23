@@ -118,6 +118,9 @@ public class LinkedListV2 {
     return;
   }
 
+  /*
+   * Delete element at the end of the linked list
+   */
   public void deleteAtEnd() {
     Node currNode = this.head();
     if (currNode == null) {
@@ -139,8 +142,11 @@ public class LinkedListV2 {
     return;
   }
 
+  /*
+   * Delete element at the specificed index.
+   * If no element exist at specificed index, throw error.
+   */
   public void deleteAtIndex(int targetIndex) {
-
     Node currNode = this.head();
 
     if (currNode == null) {

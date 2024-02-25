@@ -4,6 +4,21 @@ import java.util.LinkedList;
 
 public class Graph {
   public static void main(String[] args) throws IOException {
+    /*
+     * 
+     * 8 11
+     * 1 2
+     * 1 3
+     * 1 4
+     * 3 4
+     * 2 4
+     * 3 6
+     * 4 7
+     * 6 7
+     * 7 5
+     * 6 8
+     * 7 8
+     */
     try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
       /*
        * adjMat - Adjacency Matrix Representation of Graph
@@ -125,28 +140,50 @@ public class Graph {
     }
     Queue<Integer> queue = new LinkedList<Integer>();
     boolean[] isNodeVisited = new boolean[n];
+    int[] distanceFromSourceNode = new int[n];
+
     for (int i = 1; i < n; i += 1) {
       isNodeVisited[i] = false;
+      distanceFromSourceNode[i] = 0;
     }
 
+    int currentDistance = 0;
     queue.add(startingNode);
     isNodeVisited[startingNode] = true;
+    queue.add(-1);
+
+    currentDistance += 1;
 
     System.out.print("\nBFS: ");
 
     while (queue.isEmpty() == false) {
       int currNode = queue.poll();
-      System.out.print(currNode + " | ");
+      if (currNode == -1) {
+        System.out.print(" | ");
+        currentDistance += 1;
+        if (queue.size() > 1) {
+          queue.add(-1);
+        }
+        continue;
+      }
+      System.out.print(currNode + ", ");
       ArrayList<Integer> neighbourNodes = adjLst.get(currNode);
       for (int i = 0; i < neighbourNodes.size(); i += 1) {
         int neighbourNode = neighbourNodes.get(i);
         if (isNodeVisited[neighbourNode] == false) {
           queue.add(neighbourNode);
           isNodeVisited[neighbourNode] = true;
+          distanceFromSourceNode[neighbourNode] = currentDistance;
         }
       }
+
     }
 
+    System.out.print("\nDistance From Source Node: ");
+    for (int i = 1; i < n; i += 1) {
+      System.out.print(distanceFromSourceNode[i] + ", ");
+    }
     return;
   }
+
 }

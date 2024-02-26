@@ -35,6 +35,9 @@ public class Graph {
       System.out.print("\n----------------\n");
       breadthFirstSearchTraversalOfGraph(adjLst, 1);
 
+      System.out.print("\n-------V2---------\n");
+      breadthFirstSearchTraversalOfGraphV2(adjLst, 1);
+
     }
     return;
   }
@@ -174,6 +177,53 @@ public class Graph {
           queue.add(neighbourNode);
           isNodeVisited[neighbourNode] = true;
           distanceFromSourceNode[neighbourNode] = currentDistance;
+        }
+      }
+
+    }
+
+    System.out.print("\nDistance From Source Node: ");
+    for (int i = 1; i < n; i += 1) {
+      System.out.print(distanceFromSourceNode[i] + ", ");
+    }
+    return;
+  }
+
+  /*
+   * Cleaner Code for Computation of DistanceFromSourceNode Array
+   */
+  public static void breadthFirstSearchTraversalOfGraphV2(ArrayList<ArrayList<Integer>> adjLst, int startingNode) {
+    int n = adjLst.size();
+    if (startingNode < 1 || startingNode > n) {
+      System.out.print("\nError: Node is not present in the Graph");
+      return;
+    }
+    Queue<Integer> queue = new LinkedList<Integer>();
+    boolean[] isNodeVisited = new boolean[n];
+    int[] distanceFromSourceNode = new int[n];
+
+    for (int i = 1; i < n; i += 1) {
+      isNodeVisited[i] = false;
+      distanceFromSourceNode[i] = 0;
+    }
+
+    queue.add(startingNode);
+    isNodeVisited[startingNode] = true;
+
+    System.out.print("\nBFS: ");
+
+    while (queue.isEmpty() == false) {
+      int currNode = queue.poll();
+
+      System.out.print(currNode + ", ");
+
+      ArrayList<Integer> neighbourNodes = adjLst.get(currNode);
+      for (int i = 0; i < neighbourNodes.size(); i += 1) {
+        int neighbourNode = neighbourNodes.get(i);
+        if (isNodeVisited[neighbourNode] == false) {
+          queue.add(neighbourNode);
+          isNodeVisited[neighbourNode] = true;
+          distanceFromSourceNode[neighbourNode] = distanceFromSourceNode[currNode] + 1;
         }
       }
 

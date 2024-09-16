@@ -81,12 +81,12 @@ public class Sort {
         int temp = arr[parentIndex];
         arr[parentIndex] = arr[rightChildIndex];
         arr[rightChildIndex] = temp;
-        this.restoreDown(rightChildIndex, arr);
+        this.restoreDown(arr, rightChildIndex, size);
       } else {
         int temp = arr[parentIndex];
         arr[parentIndex] = arr[leftChildIndex];
         arr[leftChildIndex] = temp;
-        this.restoreDown(leftChildIndex, arr);
+        this.restoreDown(arr, leftChildIndex, size);
       }
     }
     return;

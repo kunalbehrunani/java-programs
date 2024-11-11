@@ -53,8 +53,10 @@ class Interval {
    * references (memory address) which obviously isn't equal for both of them.
    * 
    * If we wish to identify 2 instances of a custom class as equals based on the
-   * values of it's parameters (or any other custom / user defined logic), then we need to override the "equals" method of the
-   * custom class. Note that "equals" (and many other functions of the Object class
+   * values of it's parameters (or any other custom / user defined logic), then we
+   * need to override the "equals" method of the
+   * custom class. Note that "equals" (and many other functions of the Object
+   * class
    * are by default inherited to any custom class that we create).
    * 
    * The same goes when we try to use a Hashmap with a custom class. Everytime we
